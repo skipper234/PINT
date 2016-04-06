@@ -112,7 +112,7 @@ namespace Interface2_Teste
             PointLatLng end = new PointLatLng(40.7239619, -8.1253347);
             //criar a routa usando um provider
             GDirections route;
-            GMapProviders.GoogleMap.GetDirections(out route, start, end, false, false, false, false, false);            
+            GMapProviders.GoogleMap.GetDirections(out route, start, end, false, false, false, false, false);
             //transformar a routa em GMapRoute para poder ser usada no mapa
             GMapRoute r = new GMapRoute(route.Route, "route1");
             //alterar propriadades da rota
@@ -129,11 +129,14 @@ namespace Interface2_Teste
             GMapProviders.GoogleMap.GetDirections(out route, start, end, false, false, false, false, false);
             //transformar a routa em GMapRoute para poder ser usada no mapa
             r = new GMapRoute(route.Route, "route2");
-            MessageBox.Show(route.Distance.ToString());
+            MessageBox.Show(route.DistanceValue.ToString());
             //alterar propriadades da rota
             r.Stroke.Width = 4;
             r.Stroke.Color = Color.RoyalBlue;
             //adicionar a rota a layr
+            routesOverlay.Routes.Add(r);
+
+
             routesOverlay.Routes.Add(r);
 
             //adicionar a layr ao mapa
@@ -347,16 +350,11 @@ namespace Interface2_Teste
 
         private void calcularDistanciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PointLatLng start = new PointLatLng(40.6626744,-8.0734579);
+            PointLatLng start = new PointLatLng(40.713404, -8.131493);
             PointLatLng end = new PointLatLng(40.6439493, -7.9222965);
             GDirections route;
             GMapProviders.GoogleMap.GetDirections(out route, start, end, false, false, false, false, false);
             MessageBox.Show(route.DistanceValue.ToString());
-            //GMapRoute rrr = new GMapRoute(route.Points, "My route");
-            //GMapOverlay routesOverlay = new GMapOverlay("routes");
-            //routesOverlay.Routes.Add(rrr);
-            //gMapControl1.Overlays.Add(routesOverlay);
-            //MessageBox.Show(route.Distance.ToString());
         }
     }
 }

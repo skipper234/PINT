@@ -10,7 +10,6 @@ namespace Interface2_Teste
     {
         /// <summary>
         /// The main entry point for the application.
-        /// DELETE THIS LINE
         /// </summary>
         [STAThread]
         static void Main()
